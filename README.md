@@ -41,7 +41,7 @@ Challenge mechanics, submission criteria, Nexus instructions, and reference mode
 
 The organizer documentation states that strict adherence to submission criteria is required because much of the evaluation is automated. This repository therefore treats the official submission contract as authoritative and documents local implementation decisions separately.
 
-See `docs/rmdc26/OFFICIAL_CHALLENGE_RESOURCES.md` for exact notebook links, submission guides, Nexus reference-directory rules, and source precedence.
+See `docs/rmdc26/OFFICIAL_CHALLENGE_RESOURCES.md` for exact notebook links, submission guides, Nexus reference-directory rules, and source precedence. See `docs/rmdc26/SUBMISSION_SPEC_ALIGNMENT.md` for the direct mapping between the recorded local package and the official `microlens-submit` contract.
 
 ## What is public here
 
@@ -140,6 +140,7 @@ tests/
 
 docs/rmdc26/
   OFFICIAL_CHALLENGE_RESOURCES.md
+  SUBMISSION_SPEC_ALIGNMENT.md
   SUBMISSION_RECORD.md
   SCIENTIFIC_SCOPE.md
   MODELING_ROADMAP.md
