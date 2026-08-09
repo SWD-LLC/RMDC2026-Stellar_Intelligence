@@ -1,0 +1,5 @@
+# RMDC26 Stage 2 public reproducibility dependencies.
+# Stage 1 requirements remain separate and unchanged.
+-r requirements-rmdc26.txt
+MulensModel==3.9.0
+VBMicrolensing==5.5
