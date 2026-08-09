@@ -26,11 +26,11 @@ This index maps the public repository record to the locked Nexus evidence chain.
 | Public fitter Git blob SHA-1 at attestation | `6091774d0d6b4bd8d3e42e2f003c0ec4cb8d7628` |
 | Public fitter reconstructed SHA-256 | `917566cbd60acc366bcc082892a167651d5ce9a6b4b3e2685978a28d273665f6` |
 | Archived fitter Git blob SHA-1 | `4264a9c8508c65f5392e4e2f9c4306316d4cefff` |
-| Normalized AST SHA-256, both files | `0272069719865c4745c265e6ba7981fbd417d6c4d67f3a17aa5061a4cb4684b7` |
+| Normalized token-stream SHA-256, both files | `f807ed36ece635af3187085131b51e5706d47f61b9723797179149ed5b9039c7` |
 | Semantic identity | `PASS` |
 | Byte identity | `NO — two whitespace-placement differences only` |
 
-See `SOURCE_INTEGRITY.md` for the exact discrepancy.
+See `SOURCE_INTEGRITY.md` for the exact discrepancy and normalization contract.
 
 ## Submission-tool qualification
 
