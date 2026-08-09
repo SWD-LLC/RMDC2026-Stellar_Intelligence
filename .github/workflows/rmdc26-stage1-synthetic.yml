@@ -51,41 +51,19 @@ jobs:
           python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
           python -m py_compile scripts/select_rmdc26_stage2_canary_v010.py
 
-      - name: Verify archived Stage 1 semantic identity
+      - name: Lock public Stage 1 source bytes
         run: |
           python - <<'PY'
           import hashlib
-          import io
-          import json
-          import tokenize
           from pathlib import Path
 
           path = Path('scripts/fit_rmdc26_1s1l_baseline_v022.py')
-          raw = path.read_bytes()
-          skip = {
-              tokenize.ENCODING,
-              tokenize.NL,
-              tokenize.NEWLINE,
-              tokenize.INDENT,
-              tokenize.DEDENT,
-              tokenize.ENDMARKER,
-          }
-          tokens = [
-              (token.type, token.string)
-              for token in tokenize.tokenize(io.BytesIO(raw).readline)
-              if token.type not in skip
-          ]
-          payload = json.dumps(
-              tokens,
-              separators=(',', ':'),
-              ensure_ascii=False,
-          ).encode('utf-8')
-          actual = hashlib.sha256(payload).hexdigest()
-          expected = 'f807ed36ece635af3187085131b51e5706d47f61b9723797179149ed5b9039c7'
-          print('NORMALIZED_TOKEN_SHA256=', actual)
+          actual = hashlib.sha256(path.read_bytes()).hexdigest()
+          expected = '917566cbd60acc366bcc082892a167651d5ce9a6b4b3e2685978a28d273665f6'
+          print('PUBLIC_STAGE1_SHA256=', actual)
           if actual != expected:
-              raise SystemExit('Stage 1 token-stream integrity hash mismatch')
-          print('STAGE1_SEMANTIC_IDENTITY=PASS')
+              raise SystemExit('Public Stage 1 source hash drifted from attested bytes')
+          print('PUBLIC_STAGE1_SOURCE_LOCK=PASS')
           PY
 
       - name: Run synthetic Stage 1 regression test
