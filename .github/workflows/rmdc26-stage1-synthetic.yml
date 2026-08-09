@@ -54,20 +54,37 @@ jobs:
       - name: Verify archived Stage 1 semantic identity
         run: |
           python - <<'PY'
-          import ast
           import hashlib
+          import io
+          import json
+          import tokenize
           from pathlib import Path
 
           path = Path('scripts/fit_rmdc26_1s1l_baseline_v022.py')
-          normalized = ast.dump(
-              ast.parse(path.read_text(encoding='utf-8')),
-              include_attributes=False,
-          )
-          actual = hashlib.sha256(normalized.encode('utf-8')).hexdigest()
-          expected = '0272069719865c4745c265e6ba7981fbd417d6c4d67f3a17aa5061a4cb4684b7'
-          print('NORMALIZED_AST_SHA256=', actual)
+          raw = path.read_bytes()
+          skip = {
+              tokenize.ENCODING,
+              tokenize.NL,
+              tokenize.NEWLINE,
+              tokenize.INDENT,
+              tokenize.DEDENT,
+              tokenize.ENDMARKER,
+          }
+          tokens = [
+              (token.type, token.string)
+              for token in tokenize.tokenize(io.BytesIO(raw).readline)
+              if token.type not in skip
+          ]
+          payload = json.dumps(
+              tokens,
+              separators=(',', ':'),
+              ensure_ascii=False,
+          ).encode('utf-8')
+          actual = hashlib.sha256(payload).hexdigest()
+          expected = 'f807ed36ece635af3187085131b51e5706d47f61b9723797179149ed5b9039c7'
+          print('NORMALIZED_TOKEN_SHA256=', actual)
           if actual != expected:
-              raise SystemExit('Stage 1 semantic-integrity hash mismatch')
+              raise SystemExit('Stage 1 token-stream integrity hash mismatch')
           print('STAGE1_SEMANTIC_IDENTITY=PASS')
           PY
 
