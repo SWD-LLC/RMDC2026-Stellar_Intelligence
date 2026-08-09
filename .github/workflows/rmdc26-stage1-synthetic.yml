@@ -1,5 +1,7 @@
 name: RMDC26 Stage 1 synthetic verification
 
+# This workflow uses only synthetic light curves. No RMDC26 challenge data are
+# downloaded, embedded, or required for the public regression check.
 on:
   pull_request:
     paths:
