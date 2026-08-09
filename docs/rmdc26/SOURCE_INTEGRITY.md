@@ -29,7 +29,7 @@ The two files are not byte-identical. The difference is whitespace only and cons
 1. the archived source has one additional blank line between `objective()` and `centered_objective()`;
 2. the public source has one additional blank line between `centered_objective()` and `max_consecutive_threshold()`.
 
-Removing the first extra blank line and adding the second to the archived bytes reproduces the public Git blob SHA exactly:
+Applying exactly those two formatting changes to the archived bytes preserves the file size and reproduces the public Git blob SHA exactly:
 
 ```text
 6091774d0d6b4bd8d3e42e2f003c0ec4cb8d7628
@@ -37,40 +37,26 @@ Removing the first extra blank line and adding the second to the archived bytes 
 
 No executable statement, literal, identifier, parameter, threshold, algorithm, import, return value, comment text, or control-flow element differs.
 
-## Token-stream equivalence
+## Public-source lock
 
-For a Python-version-stable public integrity check, both files are tokenized with the standard-library `tokenize` module. Formatting-only tokens are excluded:
-
-```text
-ENCODING
-NL
-NEWLINE
-INDENT
-DEDENT
-ENDMARKER
-```
-
-All remaining `(token_type, token_string)` pairs — including names, operators, numeric/string literals, and comments — are serialized deterministically and hashed.
-
-Both sources produce the same normalized token-stream SHA-256:
+The public source bytes are now independently locked in CI at:
 
 ```text
-f807ed36ece635af3187085131b51e5706d47f61b9723797179149ed5b9039c7
+sha256: 917566cbd60acc366bcc082892a167651d5ce9a6b4b3e2685978a28d273665f6
 ```
 
-This proves that the public difference is formatting-only while avoiding Python-version-dependent AST serialization details.
+The CI check is intentionally byte-based and Python-version-independent. Any future change to the published Stage 1 source must therefore be explicit rather than silently drifting away from this attested state.
 
 ## Provenance conclusion
 
-Status:
-
 ```text
-BYTE_IDENTITY: NO
-TOKEN_STREAM_IDENTITY: PASS
+BYTE_IDENTITY_WITH_ARCHIVE: NO
+EXACT_DIFFERENCE_CLASS: WHITESPACE_ONLY
 SEMANTIC_IDENTITY: PASS
+PUBLIC_SOURCE_BYTES_LOCKED: YES
 SCIENTIFIC_LOGIC_CHANGED: NO
 VALIDATED_STAGE1_OUTPUTS_REGENERATED: NO
 SUBMISSION_ZIP_REGENERATED: NO
 ```
 
-The validated Stage 1 output and verified submission archive remain immutable. This attestation records the exact discrepancy rather than silently rewriting history to force a matching byte hash.
+The validated Stage 1 output and verified submission archive remain immutable. This attestation records the exact discrepancy rather than rewriting history merely to force a matching byte hash.
