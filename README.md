@@ -16,7 +16,7 @@ The current RMDC26 submission pipeline reached a verified local export state on 
 - Stage 1 failures: **0**
 - Submission solutions validated: **2,078 / 2,078**
 - Active solutions at export: **2,078**
-- Final local export status: `PASS_EXPORTED_ARCHIVE_VERIFIED`
+- Local export status: `PASS_EXPORTED_ARCHIVE_VERIFIED`
 - External upload/submission: **not performed as of the recorded export transaction**
 
 The exported submission archive itself is not committed here. Its verified SHA-256 is:
@@ -24,6 +24,10 @@ The exported submission archive itself is not committed here. Its verified SHA-2
 ```text
 0bb982805fe62eded6d43dd99252c02e853733356c49a8637573a7b577740597
 ```
+
+### Scientific-scope warning
+
+The verified ZIP is a **Stage 1 baseline package**, not a claim that every Experienced-tier event has received its final higher-order physical classification. Of the 2,078 model-bearing Stage 1 events, 930 were explicitly routed as anomalous and therefore warrant more expressive modeling or review. See `docs/rmdc26/SCIENTIFIC_SCOPE.md` before interpreting technical package validity as scientific completeness.
 
 ## What is public here
 
@@ -37,6 +41,7 @@ The RMDC26 portion of this repository is being organized so evaluators and resea
 - submission lifecycle and validation controls;
 - engineering journals and evidence summaries;
 - challenge-rubric traceability;
+- scientific-scope limits;
 - external scientific references used for background and comparison.
 
 Challenge data are **not** redistributed by this repository.
@@ -115,13 +120,30 @@ tests/
 
 docs/rmdc26/
   SUBMISSION_RECORD.md
+  SCIENTIFIC_SCOPE.md
   RUBRIC_ALIGNMENT.md
+  ENVIRONMENT.md
   REFERENCES.md
   STAGE1_RUNBOOK.md
   ENGINEERING_JOURNAL_2026-08-05.md
+
+requirements-rmdc26.txt
+.github/workflows/rmdc26-stage1-synthetic.yml
 ```
 
 Additional control/evidence files will be added from the Roman Nexus working tree without rewriting the already-validated scientific outputs.
+
+## Public synthetic verification
+
+The repository includes a lightweight test that does **not** require the challenge dataset. It checks clean PSPL recovery, injected-anomaly routing, and data-quality coverage behavior.
+
+```bash
+python -m pip install -r requirements-rmdc26.txt
+python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
+PYTHONPATH=scripts python tests/test_rmdc26_1s1l_baseline_v022.py
+```
+
+A GitHub Actions workflow runs the same synthetic verification for relevant pull requests and changes to `main`.
 
 ## Official challenge tooling
 
