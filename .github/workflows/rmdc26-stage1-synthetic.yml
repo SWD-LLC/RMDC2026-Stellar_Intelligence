@@ -1,0 +1,49 @@
+name: RMDC26 Stage 1 synthetic verification
+
+# This workflow uses only synthetic light curves. No RMDC26 challenge data are
+# downloaded, embedded, or required for the public regression check.
+on:
+  pull_request:
+    paths:
+      - 'scripts/fit_rmdc26_1s1l_baseline_v022.py'
+      - 'tests/test_rmdc26_1s1l_baseline_v022.py'
+      - 'requirements-rmdc26.txt'
+      - '.github/workflows/rmdc26-stage1-synthetic.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/fit_rmdc26_1s1l_baseline_v022.py'
+      - 'tests/test_rmdc26_1s1l_baseline_v022.py'
+      - 'requirements-rmdc26.txt'
+      - '.github/workflows/rmdc26-stage1-synthetic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-stage1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-rmdc26.txt
+
+      - name: Install RMDC26 public test dependencies
+        run: python -m pip install -r requirements-rmdc26.txt
+
+      - name: Compile production fitter
+        run: python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
+
+      - name: Run synthetic Stage 1 regression test
+        env:
+          PYTHONPATH: scripts
+        run: python tests/test_rmdc26_1s1l_baseline_v022.py
