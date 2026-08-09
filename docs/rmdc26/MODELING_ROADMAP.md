@@ -75,21 +75,35 @@ retain competing degeneracies when materially indistinguishable
 submission-tool validation as a new versioned scientific artifact
 ```
 
+## Organizer model vocabulary
+
+For submission-facing model names, follow the `microlens-submit` convention exactly. In the current 0.17.9 manual, active model types include:
+
+- `1S1L` — one source, one lens; required core parameters `t0`, `u0`, `tE`;
+- `1S2L` — one source, two lenses; adds `s`, `q`, `alpha`;
+- `2S1L` — two sources, one lens; adds second-source timing/impact and flux-ratio parameters;
+- `other` — custom model type when the supported named contract is not applicable.
+
+The documentation also lists additional source/lens multiplicities, some with planned rather than active status. Therefore this roadmap does **not** assume that every scientifically conceivable model is currently submission-supported. The installed/official contract must be checked again before a new bulk import or export.
+
+Higher-order-effect tags documented by the official usage examples include parallax, finite source, lens orbital motion, xallarap/source orbital motion, Gaussian-process noise, stellar rotation, and fitted limb darkening.
+
 ## Model-family escalation rule
 
-Do not infer a physical class solely from a Stage 1 residual threshold. Stage 1 identifies where 1S1L is inadequate; Stage 2 must establish whether a more expressive model is actually supported.
+Do not infer a physical class solely from a Stage 1 residual threshold. Stage 1 identifies where `1S1L` is inadequate; Stage 2 must establish whether a more expressive model is actually supported.
 
-Candidate model families may include, where justified by the event and challenge specification:
+Candidate model families may include, where justified by the event and by the current submission specification:
 
-- binary lens (`2L1S`);
-- triple lens or other more complex lens configurations;
-- binary source (`1L2S`) where supported;
+- binary lens (`1S2L` in `microlens-submit` notation);
+- binary source (`2S1L` in `microlens-submit` notation);
+- more complex source/lens multiplicities only where the current tool contract supports them;
 - finite-source effects;
 - parallax;
-- lens/source orbital motion;
-- combinations of higher-order effects.
+- lens orbital motion;
+- xallarap/source orbital motion;
+- combinations of higher-order effects that are both scientifically justified and submission-compatible.
 
-The exact model vocabulary and parameter contract must be checked against the current `microlens-submit` specification before implementation.
+Scientific shorthand such as “2L1S” must not be allowed to leak into submission-facing `model_type` or `model_tags` fields when the official tool expects `1S2L`. Internal scientific notation can be retained in notes only if its relationship to the submission notation is explicit.
 
 ## Prioritization strategy
 
@@ -123,7 +137,7 @@ Every Stage 2 candidate should be compared against its locked Stage 1 baseline u
 
 - event ID;
 - Stage 1 solution ID / baseline parameters;
-- candidate model family;
+- candidate model family and exact submission model tag;
 - candidate parameters;
 - log likelihood or equivalent fit statistic;
 - change in fit statistic relative to Stage 1;
@@ -134,6 +148,12 @@ Every Stage 2 candidate should be compared against its locked Stage 1 baseline u
 - evidence supporting model escalation.
 
 A higher-order model should not replace the baseline merely because it is more flexible; the evidence for the additional complexity must be inspectable.
+
+## Submission contract for Stage 2
+
+The official workflow requires regular validation and recommends keeping history by deactivating superseded solutions rather than deleting them. For events with multiple active competing solutions, their relative probabilities must satisfy the submission-tool validation rules.
+
+Before final export, the official tutorial also expects repository and hardware information to be present, and the final package must be produced through the validated submission workflow.
 
 ## Submission versioning
 
