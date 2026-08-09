@@ -35,23 +35,30 @@ Removing the first extra blank line and adding the second to the archived bytes 
 6091774d0d6b4bd8d3e42e2f003c0ec4cb8d7628
 ```
 
-No executable statement, literal, identifier, parameter, threshold, algorithm, import, return value, or control-flow element differs.
+No executable statement, literal, identifier, parameter, threshold, algorithm, import, return value, comment text, or control-flow element differs.
 
-## AST equivalence
+## Token-stream equivalence
 
-Both files were parsed with Python `ast.parse()` and normalized with:
-
-```python
-ast.dump(tree, include_attributes=False)
-```
-
-The normalized AST SHA-256 is identical for both sources:
+For a Python-version-stable public integrity check, both files are tokenized with the standard-library `tokenize` module. Formatting-only tokens are excluded:
 
 ```text
-0272069719865c4745c265e6ba7981fbd417d6c4d67f3a17aa5061a4cb4684b7
+ENCODING
+NL
+NEWLINE
+INDENT
+DEDENT
+ENDMARKER
 ```
 
-Therefore the public Stage 1 fitter is **semantically identical** to the archived validated source despite the two whitespace-placement differences.
+All remaining `(token_type, token_string)` pairs — including names, operators, numeric/string literals, and comments — are serialized deterministically and hashed.
+
+Both sources produce the same normalized token-stream SHA-256:
+
+```text
+f807ed36ece635af3187085131b51e5706d47f61b9723797179149ed5b9039c7
+```
+
+This proves that the public difference is formatting-only while avoiding Python-version-dependent AST serialization details.
 
 ## Provenance conclusion
 
@@ -59,8 +66,8 @@ Status:
 
 ```text
 BYTE_IDENTITY: NO
+TOKEN_STREAM_IDENTITY: PASS
 SEMANTIC_IDENTITY: PASS
-AST_IDENTITY: PASS
 SCIENTIFIC_LOGIC_CHANGED: NO
 VALIDATED_STAGE1_OUTPUTS_REGENERATED: NO
 SUBMISSION_ZIP_REGENERATED: NO
