@@ -1,0 +1,12 @@
+# Public reproducibility dependencies for the RMDC26 Stage 1 code and synthetic tests.
+#
+# microlens-submit is pinned because the submission lifecycle was contract-tested
+# against this exact implementation. Other exact production package versions are
+# captured in the generated Stage 1 run manifest and should not be guessed here.
+
+duckdb
+numpy
+pandas
+scipy
+pyarrow
+microlens-submit==0.17.9
