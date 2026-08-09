@@ -180,7 +180,7 @@ The official documentation provides the CLI tutorial, Python API, usage examples
 
 ## Ownership
 
-**Principal architect and project owner:** Sierra Warren  
-**Organization:** Sierra Warren Developments, LLC
+**Principal architect and project owner:** Sierra N. Warren  
+**Organization:** University of Kentucky
 
 The repository preserves execution history, uncertainty, failure modes, and provenance as part of the scientific product rather than treating those records as disposable implementation detail.
