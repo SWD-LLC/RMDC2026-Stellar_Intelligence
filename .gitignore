@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Jupyter / local workspace state
+.ipynb_checkpoints/
+*.jupyterlab-workspace
+
+# RMDC26 challenge data and local databases
+*.parquet
+rmdc26.duckdb
+*.duckdb
+
+# Raw/generated RMDC26 working state. Selected public evidence belongs under
+# docs/rmdc26/ rather than being bulk-published from these directories.
+outputs/
+staging/
+evidence/
+logs/
+exports/
+releases/
+
+# Submission packages / challenge bundles
+RMDC26_Experienced_Stellar_Intelligence_*.zip
+RMDC26_Experienced_Stellar_Intelligence_*.zip.sha256
+RMDC26_Stage1_*_artifacts.zip
+RMDC26_Real_Data_Canary_*.zip
+RMDC26_Challenge_Control_Manifest_Bundle_*.zip
+
+# Local temporary / backup paths
+*.tmp
+*.bak
+*~
