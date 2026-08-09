@@ -1,10 +1,10 @@
 # Stellar Intelligence — RMDC26 Experienced-Tier Work
 
-Stellar Intelligence is Sierra Warren's astronomical systems and provenance framework. This repository now contains the public, reproducible record for the Roman Microlensing Data Challenge 2026 (RMDC26) Experienced-tier workflow alongside the broader ASTRID / Stellar Intelligence research materials.
+This repository contains the public, reproducible technical record for the Stellar Intelligence Roman Microlensing Data Challenge 2026 (RMDC26) Experienced-tier workflow.
 
 ## RMDC26 status
 
-The current RMDC26 submission pipeline reached a verified local export state on Roman Research Nexus.
+The current RMDC26 pipeline reached a verified local export state on Roman Research Nexus.
 
 - Challenge tier: **Experienced**
 - Source dataset: `/data/data-challenge/rges/RMDC26_Experienced_Data.parquet`
@@ -27,7 +27,21 @@ The exported submission archive itself is not committed here. Its verified SHA-2
 
 ### Scientific-scope warning
 
-The verified ZIP is a **Stage 1 baseline package**, not a claim that every Experienced-tier event has received its final higher-order physical classification. Of the 2,078 model-bearing Stage 1 events, 930 were explicitly routed as anomalous and therefore warrant more expressive modeling or review. See `docs/rmdc26/SCIENTIFIC_SCOPE.md` before interpreting technical package validity as scientific completeness.
+The verified ZIP is a **Stage 1 baseline package**, not a claim that every Experienced-tier event has received its final higher-order physical classification. Of the 2,078 model-bearing Stage 1 events, 930 were explicitly routed as anomalous and therefore warrant more expressive modeling or review. See `docs/rmdc26/SCIENTIFIC_SCOPE.md` and `docs/rmdc26/MODELING_ROADMAP.md` before interpreting technical package validity as scientific completeness.
+
+## Official challenge source of truth
+
+Challenge mechanics, submission criteria, Nexus instructions, and reference modeling workflows are anchored to organizer-maintained resources:
+
+- RMDC26 challenge: https://rges-pit.org/data-challenge/
+- Nexus / AAS workshop documentation: https://rges-pit.org/data-challenge/aas-workshop/1-nexus/
+- official notebooks: https://github.com/rges-pit/data-challenge-notebooks
+- official submission tool: https://github.com/rges-pit/microlens-submit
+- submission documentation: https://microlens-submit.readthedocs.io/en/latest/
+
+The organizer documentation states that strict adherence to submission criteria is required because much of the evaluation is automated. This repository therefore treats the official submission contract as authoritative and documents local implementation decisions separately.
+
+See `docs/rmdc26/OFFICIAL_CHALLENGE_RESOURCES.md` for exact notebook links, submission guides, Nexus reference-directory rules, and source precedence.
 
 ## What is public here
 
@@ -42,6 +56,8 @@ The RMDC26 portion of this repository is being organized so evaluators and resea
 - engineering journals and evidence summaries;
 - challenge-rubric traceability;
 - scientific-scope limits;
+- higher-order modeling roadmap;
+- organizer-maintained challenge references;
 - external scientific references used for background and comparison.
 
 Challenge data are **not** redistributed by this repository.
@@ -74,9 +90,13 @@ validation -> activation -> verified local export
 
 A Stage 1 route label is **not** a final astrophysical classification. Residual anomaly evidence routes an event toward more expressive modeling; data-quality failures are preserved explicitly instead of being silently dropped.
 
+For the anomalous queue, the next modeling layer is being designed against the official RGES-PIT binary-lens and microlensing-tools notebooks before any bulk Stage 2 execution.
+
 ## Provenance boundary
 
-The challenge photometry is the fitted data source. External catalogs and literature resources, including OGLE, are treated as scientific references and comparison material unless an artifact explicitly states otherwise. They are not silently injected into the blind challenge inference.
+The challenge photometry is the fitted data source. Official organizer notebooks are treated as challenge-method references. External catalogs and literature resources, including OGLE, are treated as scientific references and comparison material unless an artifact explicitly states otherwise. None are silently injected into the blind challenge inference.
+
+The Nexus preloaded reference directory is also treated as external reference content: organizer guidance states that it is read-only and regularly replaced, so project-owned code and evidence belong in a durable project workspace/repository instead.
 
 ## Compute record
 
@@ -119,8 +139,10 @@ tests/
   test_rmdc26_1s1l_baseline_v022.py
 
 docs/rmdc26/
+  OFFICIAL_CHALLENGE_RESOURCES.md
   SUBMISSION_RECORD.md
   SCIENTIFIC_SCOPE.md
+  MODELING_ROADMAP.md
   RUBRIC_ALIGNMENT.md
   ENVIRONMENT.md
   REFERENCES.md
@@ -152,6 +174,8 @@ RMDC26 uses the `microlens-submit` toolkit for challenge submission management, 
 ```bash
 python -m microlens_submit.cli
 ```
+
+The official documentation provides the CLI tutorial, Python API, usage examples, and manual submission format. Those resources remain the authoritative contract for challenge packaging; local lifecycle controls in this repository exist to make adherence auditable.
 
 ## Ownership
 
