@@ -1,46 +1,48 @@
 # RMDC26 Experienced — Submission Record
 
-This document preserves the submission history for the Stellar Intelligence RMDC26 Experienced-tier workflow. The October 2, 2026 artifact below is the final frozen package prepared for challenge upload; older export records are retained as historical provenance.
+This document preserves the submission history for the Stellar Intelligence RMDC26 Experienced-tier workflow. The October 2, 2026 Stellar Intelligence artifact below is the final audited package submitted through the challenge's alternative Box path. Older export records are retained below as historical provenance.
 
-## October 2, 2026 final challenge artifact
+## October 2, 2026 final submitted artifact
 
 ```text
-TEAM_NAME: Sierra Warren RMDC26
+PROJECT: Stellar Intelligence
 TIER: experienced
 EVENTS: 2078
 ACTIVE_SOLUTIONS: 2078
 INACTIVE_SOLUTIONS: 0
-NONEMPTY_NOTES: 2078
-SUBMISSION_VALIDATION_ISSUES: 0
-OFFICIAL_VALIDATE_SUBMISSION: ALL VALIDATIONS PASSED
+FINAL_ARCHIVE_AUDIT: PASS
 ZIP_INTEGRITY: PASS
+MODEL_MIX:
+  1S1L: 2076
+  1S3L: 1
+  2S1L: 1
 ```
 
-Final artifact:
+Submission-facing artifact:
 
 ```text
-RMDC26_Sierra_Warren_Experienced_20261002.zip
-SIZE_BYTES 2600175
-MEMBERS 6235
-SHA256 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
+Stellar_Intelligence_RMDC26_Experienced_20261002_FINAL.zip
+SHA256 f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
 ```
 
-Final embedded submission metadata:
+The final challenge ZIP is intentionally not stored in this repository. The project owner reported successful upload through the RMDC26 alternative Box file request on October 2, 2026.
+
+Final packaging metadata:
 
 ```text
-team_name: Sierra Warren RMDC26
-tier: experienced
+cpu: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
 cpu_details: 2 online CPUs: 0,1
-memory_gb: 15.0
+memory_gb: 15
 platform: Roman Nexus
 nexus_image: RomanNexus-2026.2
 repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
-git_dir: null
 ```
 
-A comprehensive dossier was generated successfully before export. The final ZIP contains 2,078 event JSON records, 2,078 active solution JSON records, and 2,078 Markdown solution notes.
+The final model mix contains 2,076 `1S1L` solutions, one `1S3L` solution (`RMDC26_002050`), and one `2S1L` solution (`RMDC26_000249`). `RMDC26_000435` remains `1S1L`.
 
-The final challenge ZIP is intentionally not stored in this repository. External challenge upload is not claimed until an upload confirmation is preserved.
+The `RMDC26_002050` 1S3L record intentionally retains its fit-native geometry names. `microlens-submit==0.17.9` emits six schema warnings for those native fields because its current 1S3L specification uses different canonical geometry names. No unverified mapping was invented. The implementation boundary is documented in the submission note.
+
+RMDC26 organizer guidance states that evaluator-facing written notes are loaded from the Markdown note hooks referenced by the submission object. External notebooks or repository documents are therefore not represented as substitutes for those notes.
 
 See `FINAL_SUBMISSION_2026-10-02.md` for the compact final artifact record.
 
