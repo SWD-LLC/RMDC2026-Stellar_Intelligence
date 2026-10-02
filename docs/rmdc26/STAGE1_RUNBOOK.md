@@ -56,7 +56,7 @@ Core Python dependencies used by the Stage 1 workflow:
 
 The submission workflow later used `microlens-submit==0.17.9`.
 
-## Synthetic verification
+## Fixture-based software verification
 
 From the repository root:
 
@@ -65,7 +65,7 @@ python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
 PYTHONPATH=scripts python tests/test_rmdc26_1s1l_baseline_v022.py
 ```
 
-The v0.2.2 synthetic tests cover:
+The v0.2.2 code-generated regression fixtures cover:
 
 - clean PSPL parameter recovery;
 - injected residual anomaly routing;
