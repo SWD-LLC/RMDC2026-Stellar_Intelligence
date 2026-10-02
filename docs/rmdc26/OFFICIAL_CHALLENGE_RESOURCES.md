@@ -125,7 +125,7 @@ The RMDC26 challenge page requires teams to document dependencies and CPU hours,
 These requirements are why this repository separately exposes:
 
 - production fitting code;
-- synthetic tests;
+- deterministic code-generated regression fixtures;
 - measured compute and hardware metadata;
 - scientific-scope boundaries;
 - submission lifecycle evidence;
