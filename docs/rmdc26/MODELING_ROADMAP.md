@@ -166,7 +166,7 @@ If Stage 2 produces scientifically improved solutions, create a **new** submissi
 Before a full Stage 2 execution, the repository should contain:
 
 - a reviewed model-family contract based on current organizer specifications;
-- a small synthetic/known-case regression suite;
+- a small deterministic fixture/known-case regression suite;
 - a representative real-event canary plan;
 - measured resource estimates;
 - a failure/recovery policy;
