@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic regression tests for the RMDC26 Stage 2 canary selector."""
+"""Deterministic fixture regression tests for the RMDC26 Stage 2 canary selector."""
 from __future__ import annotations
 
 import numpy as np
@@ -8,14 +8,14 @@ import pandas as pd
 import select_rmdc26_stage2_canary_v010 as selector
 
 
-def synthetic_stage1() -> pd.DataFrame:
+def fixture_stage1() -> pd.DataFrame:
     rows = []
 
     # 40 successful anomalous events spanning several residual/quality regimes.
     for i in range(40):
         rows.append(
             {
-                "event_id": f"RMDC26_SYN_{i:04d}",
+                "event_id": f"RMDC26_FIXTURE_{i:04d}",
                 "route": "anomalous_route",
                 "fit_status": "fit_success",
                 "reduced_chi2": 2.05 + i * 0.35,
@@ -80,7 +80,7 @@ def synthetic_stage1() -> pd.DataFrame:
 
 
 def main() -> None:
-    frame = synthetic_stage1()
+    frame = fixture_stage1()
 
     first = selector.select_canary(frame, count=16)
     second = selector.select_canary(frame.sample(frac=1.0, random_state=99), count=16)
