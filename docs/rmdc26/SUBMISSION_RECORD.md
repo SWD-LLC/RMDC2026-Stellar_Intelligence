@@ -46,6 +46,38 @@ RMDC26 organizer guidance states that evaluator-facing written notes are loaded 
 
 See `FINAL_SUBMISSION_2026-10-02.md` for the compact final artifact record.
 
+## October 2, 2026 corrected 1S3L submission
+
+The final corrected artifact supersedes the earlier October 2 package for evaluator use:
+
+```text
+Stellar_Intelligence_RMDC26_Experienced_20261002_CORRECTED_1S3L.zip
+SHA256 8e0568f457635bbdcdf304f46535bff5002540b85feda5bdf2c2763b2db18e04
+SIZE   16537040 bytes
+```
+
+For `RMDC26_002050`, the active `1S3L` solution was remapped from the fit-native geometry fields `s_21/q_21/s_31/q_31/alpha/psi` into the pairwise fields defined in `microlens-submit/spec/parameter_spec.yaml`:
+
+```text
+s01/q01/alpha01
+s02/q02/alpha02
+s12/q12/alpha12
+```
+
+The fitted `t0`, `u0`, and `tE` values were preserved unchanged. Direct checking against the canonical YAML specification returned:
+
+```text
+MISSING_REQUIRED = []
+UNKNOWN_TO_1S3L_SPEC = []
+SPEC_CONFORMANT = True
+```
+
+The local generated validator did not include `1S3L` in its active `MODEL_DEFINITIONS` even though the same checkout's canonical `parameter_spec.yaml` defined the model and pairwise fields. The corrected scientific representation was therefore verified against the canonical specification rather than modified to satisfy stale generated validator code.
+
+See `1S3L_CORRECTION_2026-10-02.md` for the exact correction record.
+
+**Author:** Sierra Warren
+
 ## Historical August 9 local export state
 
 The following record is retained because it documents an earlier controlled export and its integrity chain. It is not the October 2 final challenge artifact.
