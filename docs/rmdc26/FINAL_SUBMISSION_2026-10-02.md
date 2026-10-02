@@ -1,97 +1,109 @@
 # RMDC26 Final Submission Record — October 2, 2026
 
 **Project:** Stellar Intelligence  
-**Team name:** Sierra Warren RMDC26  
-**Project owner:** Sierra Warren  
-**Organization:** Sierra Warren Developments, LLC  
-**Challenge tier:** Experienced
+**Challenge:** Roman Microlensing Data Challenge 2026 (RMDC26)  
+**Challenge tier:** Experienced  
+**Repository:** https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence
 
-This file records the final validated RMDC26 challenge artifact prepared on October 2, 2026. It supersedes older repository references when identifying the final October 2 export, while preserving the earlier Stage 1 and August export records as historical provenance.
+This file records the final audited artifact prepared and submitted through the RMDC26 alternative Box submission path on October 2, 2026. It supersedes older October 2 artifact references in this repository while preserving earlier Stage 1 and August records as historical provenance.
 
-## Final package identity
+## Final submitted package identity
+
+Submission-facing filename:
 
 ```text
-archive: RMDC26_Sierra_Warren_Experienced_20261002.zip
-size_bytes: 2600175
-zip_members: 6235
-sha256: 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
+Stellar_Intelligence_RMDC26_Experienced_20261002_FINAL.zip
+```
+
+Audited final artifact SHA-256:
+
+```text
+f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
 ```
 
 The final ZIP is intentionally not committed to this public repository.
 
-## Final submission state
+The project owner reported successful upload through the RMDC26 alternative Box file request on October 2, 2026. Organizer notification is handled separately through the requested Slack/email channel.
+
+## Final exported state
 
 ```text
 events: 2078
-solution_jsons: 2078
-solution_notes: 2078
+solutions: 2078
 active_solutions: 2078
 inactive_solutions: 0
-malformed_solution_jsons: 0
 zip_integrity: PASS
-submission_validation_issues: 0
-official_validate_submission: ALL VALIDATIONS PASSED
+final_archive_audit: PASS
+model_mix:
+  1S1L: 2076
+  1S3L: 1
+  2S1L: 1
 ```
 
-Every active solution in the final archive is a `1S1L` Stage 1 baseline solution.
+The two higher-complexity recovered solutions are:
 
-## Notes and dossier
+- `RMDC26_002050`: `1S3L`
+- `RMDC26_000249`: `2S1L`
 
-The final project contained one non-empty Markdown note for every active solution:
+`RMDC26_000435` remains a `1S1L` solution in the final archive.
+
+## Notes and evaluator-facing documentation
+
+RMDC26 organizer guidance states that written notes included through the submission object's Markdown note hooks are rendered into the evaluator dossier. The final workflow therefore treats the submission object's notes and requested metadata as the evaluator-facing record rather than relying on an external notebook or supplemental dossier.
+
+The repository may contain broader engineering and provenance documentation, but those files are not represented as substitutes for the challenge submission notes.
+
+## Validation and schema boundary
+
+The full submission validation and export completed successfully with `microlens-submit==0.17.9`, and the final ZIP passed its archive audit.
+
+The `1S3L` solution for `RMDC26_002050` retains fit-native geometry field names:
 
 ```text
-active_solutions: 2078
-nonempty_notes: 2078
-missing_note_files: 0
-empty_note_files: 0
+s_21
+q_21
+s_31
+q_31
+alpha
+psi
 ```
 
-A comprehensive dossier was generated successfully before final export. The dossier is a human-review artifact and is not part of the exported challenge ZIP.
+The current toolkit's 1S3L parameter specification lists canonical geometry names differently and emits six warnings for these native fields. The mapping was not guessed or rewritten because semantic equivalence, particularly for the angular parameters, was not independently established. This limitation is documented in the corresponding submission note.
 
-## Final packaging and validation environment
+Exporter warnings that set equal `relative_probability` values when likelihood information is absent are retained as toolkit warnings rather than represented as validation failures. Each event in the final export has one active solution.
 
-The final package was validated and exported on Roman Research Nexus with `microlens-submit==0.17.9`.
+Passing package validation establishes submission/package validity. It does not establish that every Experienced-tier event has received an exhaustive final astrophysical classification.
 
-Embedded `submission.json` metadata in the frozen final ZIP:
+## Final packaging and hardware metadata
 
-```json
-{
-  "team_name": "Sierra Warren RMDC26",
-  "tier": "experienced",
-  "hardware_info": {
-    "cpu_details": "2 online CPUs: 0,1",
-    "memory_gb": 15.0,
-    "platform": "Roman Nexus",
-    "nexus_image": "RomanNexus-2026.2"
-  },
-  "repo_url": "https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git",
-  "git_dir": null
-}
+The final package was validated and exported on Roman Research Nexus in `RomanNexus-2026.2`.
+
+Final embedded hardware metadata includes:
+
+```text
+cpu: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
 ```
 
-The archived `submission.json` contains no separate `cpu` model field. Although a CPU model was observed during Nexus environment inspection, it is not claimed here as embedded final-submission metadata.
-
-This is distinct from the historical Stage 1 production environment recorded elsewhere in the repository. The Stage 1 run remains documented as `RomanNexus-2026.1`; the final October 2 packaging and validation environment was `RomanNexus-2026.2`. The historical execution record is not rewritten.
+The historical Stage 1 execution record remains separate and is not rewritten by this final packaging record.
 
 ## Stage 1 accounting boundary
 
 The production Stage 1 run processed 2,079 Experienced-tier targets:
 
 - 2,078 produced model-bearing 1S1L solutions;
-- `RMDC26_001563` was documented as a data-quality-only Stage 1 record because no valid unsaturated Stage 1 photometry remained.
+- `RMDC26_001563` was preserved as a data-quality-only Stage 1 record because no valid unsaturated Stage 1 photometry remained.
 
-The final October 2 challenge archive contains 2,078 event records and 2,078 active solution records. This final package record does not alter the earlier 2,079-target Stage 1 accounting.
+The final challenge archive contains 2,078 event records and 2,078 active solution records. The final higher-complexity recovery work changed the model type for two exported events without changing the Stage 1 target accounting.
 
 ## Scientific interpretation boundary
 
-Passing `microlens-submit` validation establishes package/schema validity. It does not establish that a 1S1L baseline is the most appropriate physical model for every Experienced-tier event.
-
-The repository's existing `SCIENTIFIC_SCOPE.md` and `MODELING_ROADMAP.md` remain authoritative for the Stage 1 scientific limitation and higher-order modeling boundary.
+The final archive is not presented as an exhaustive higher-order solution of all Experienced-tier events. Most exported solutions remain Stage 1 `1S1L` baselines. The repository's scientific-scope and modeling-roadmap documents remain relevant when interpreting those solutions.
 
 ## Submission destination
 
-The RMDC26 Slack `Helpful Links` resource identifies the challenge submission destination as:
-
-https://lsu.app.box.com/f/9c12c0e9d1c74bbc82f89bf9ebdf9f17
-
-External challenge upload is not claimed by this record until an upload confirmation is preserved.
+The alternative RMDC26 submission was made through the organizer-provided Box file request. The submission-facing artifact is the Stellar Intelligence-named ZIP identified above.
