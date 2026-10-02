@@ -46,7 +46,7 @@ Optical Gravitational Lensing Experiment (OGLE):
 
 https://www.astrouw.edu.pl/ogle/
 
-OGLE is documented here as an external microlensing survey/reference resource. Unless a specific artifact explicitly states otherwise, OGLE data are **not** challenge-fit inputs and are not silently merged with the RMDC26 simulated light curves.
+OGLE is documented here as an external microlensing survey/reference resource. Unless a specific artifact explicitly states otherwise, OGLE data are **not** challenge-fit inputs and are not silently merged with the organizer-provided RMDC26 challenge light curves.
 
 ## Provenance rule
 
@@ -71,4 +71,4 @@ The Stage 1 pipeline records `t0_time_system=input_bjd`. A separate read-only au
 
 ## Reproducibility note
 
-The public code and synthetic tests are designed to make the fitting and routing behavior inspectable without republishing protected challenge data. Reproducing the exact competition results requires authorized access to the RMDC26 Experienced dataset on the Roman Research Nexus or an equivalent organizer-provided data source.
+The public code and code-generated regression fixtures are designed to make fitting and routing behavior inspectable without republishing protected challenge data. These fixtures are software checks, not scientific simulations. Reproducing the exact competition results requires authorized access to the RMDC26 Experienced dataset on the Roman Research Nexus or an equivalent organizer-provided data source.
