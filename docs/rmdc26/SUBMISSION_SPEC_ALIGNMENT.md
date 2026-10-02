@@ -169,7 +169,7 @@ Per-event `runtime_seconds` is also preserved in the Stage 1 result table.
 
 ## Repository publication rule
 
-The RMDC26 challenge ground rules require developed code to be documented and open source. This repository publishes the fitting code, synthetic tests, methods, compute record, submission controls, and provenance documentation while excluding protected/raw challenge data and the final submission ZIP.
+The RMDC26 challenge ground rules require developed code to be documented and open source. This repository publishes the fitting code, deterministic regression fixtures, methods, compute record, submission controls, and provenance documentation while excluding protected/raw challenge data and the final submission ZIP. The regression fixtures are software tests, not scientific simulations.
 
 ## Nexus reference-directory rule
 
