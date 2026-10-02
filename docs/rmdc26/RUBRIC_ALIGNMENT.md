@@ -44,7 +44,7 @@ The Stage 1 fitter:
 - records parameter-boundary convergence as quality metadata;
 - does not silently drop the one event with no valid unsaturated photometry.
 
-Synthetic regression tests verify clean PSPL recovery, anomaly routing, and the data-quality route.
+Code-generated regression fixtures exercise clean PSPL recovery, anomaly-routing logic, and the data-quality route. They are software tests, not scientific simulations.
 
 ### Time-coordinate control
 
@@ -89,16 +89,19 @@ These route labels are triage classifications, not claims that every event is ph
 | configured threads | 4 |
 | DuckDB memory limit | 4 GB |
 
-### Hardware recorded in final submission metadata
+### Final submission metadata and historical Stage 1 environment
+
+The frozen October 2 archive embeds:
 
 ```text
-CPU: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
-Memory: 15.34 GB
-OS: Linux
-Nexus image: 378083651696.dkr.ecr.us-east-1.amazonaws.com/roman:RomanNexus-2026.1
-Python: 3.12.13
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
 microlens-submit: 0.17.9
 ```
+
+The final archive does not contain a separate CPU-model field. The historical Stage 1 production run remains documented separately under `RomanNexus-2026.1` / Python 3.12.13.
 
 ### Efficiency design choices
 
@@ -134,7 +137,7 @@ The workflow adds transaction-style scientific controls around the challenge sub
 
 - source/derived time-axis audit before mapping `t0`;
 - explicit organizer-resolution record for an ambiguous convention;
-- synthetic contract probes against the installed submission toolkit version;
+- isolated contract probes against the installed submission toolkit version;
 - persistent-state lifecycle testing before real bulk import;
 - inactive-state and active-state cryptographic locks;
 - before/after hashing of protected Stage 1 artifacts;
@@ -150,7 +153,7 @@ Operational failures that changed the design are retained in the engineering rec
 The public repository is being structured as a reproducible technical record rather than only a private competition artifact. The intent is to expose:
 
 - runnable fitting code;
-- synthetic tests that require no challenge data;
+- code-generated regression fixtures that require no challenge data;
 - clearly separated challenge-data and external-reference boundaries;
 - explicit explanations of fitting, routing, compute usage, and validation;
 - an engineering journal that records uncertainty and failures rather than presenting only polished success states.
