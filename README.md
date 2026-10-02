@@ -137,7 +137,7 @@ nexus_image: RomanNexus-2026.2
 repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
 ```
 
-The final packaging environment and the historical Stage 1 execution environment are intentionally documented separately.
+The frozen archive does **not** contain a separate `cpu` model field. The CPU model observed during Nexus environment inspection is therefore not represented here as embedded submission metadata. The final packaging environment and the historical Stage 1 execution environment are intentionally documented separately.
 
 ## Time-coordinate policy
 

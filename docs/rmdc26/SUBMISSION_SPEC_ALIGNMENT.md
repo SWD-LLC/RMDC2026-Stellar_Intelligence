@@ -45,7 +45,7 @@ microlens-submit: 0.17.9
 
 The Stage 1 production run remains historically documented under `RomanNexus-2026.1` / Python 3.12.13. That historical compute provenance is separate from the final October 2 packaging and validation environment and is not rewritten.
 
-The exact repository URL stored in the final artifact is the public repository above.
+The final archive's `hardware_info` does not include a separate `cpu` model field; only the listed `cpu_details`, memory, platform, and Nexus image values are embedded. The exact repository URL stored in the final artifact is the public repository above.
 
 ## CSV import contract
 

@@ -69,6 +69,8 @@ Embedded `submission.json` metadata in the frozen final ZIP:
 }
 ```
 
+The archived `submission.json` contains no separate `cpu` model field. Although a CPU model was observed during Nexus environment inspection, it is not claimed here as embedded final-submission metadata.
+
 This is distinct from the historical Stage 1 production environment recorded elsewhere in the repository. The Stage 1 run remains documented as `RomanNexus-2026.1`; the final October 2 packaging and validation environment was `RomanNexus-2026.2`. The historical execution record is not rewritten.
 
 ## Stage 1 accounting boundary

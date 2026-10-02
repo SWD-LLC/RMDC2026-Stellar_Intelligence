@@ -19,6 +19,8 @@ repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
 git_dir: null
 ```
 
+The frozen archive does not contain a separate `cpu` model field. A CPU model observed during Nexus inspection is therefore kept separate from the embedded submission metadata rather than inferred into the archive record.
+
 This final packaging environment is distinct from the Stage 1 production environment below. The historical Stage 1 runtime is preserved exactly rather than rewritten.
 
 ## Historical Stage 1 production environment
