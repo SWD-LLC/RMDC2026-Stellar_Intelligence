@@ -1,0 +1,77 @@
+name: RMDC26 fixture verification
+
+# This workflow uses only code-generated test fixtures. No RMDC26 challenge
+# data are downloaded, embedded, or required for the public regression checks.
+on:
+  pull_request:
+    paths:
+      - 'scripts/fit_rmdc26_1s1l_baseline_v022.py'
+      - 'scripts/select_rmdc26_stage2_canary_v010.py'
+      - 'tests/test_rmdc26_1s1l_baseline_v022.py'
+      - 'tests/test_select_rmdc26_stage2_canary_v010.py'
+      - 'requirements-rmdc26.txt'
+      - '.github/workflows/rmdc26-stage1-fixtures.yml'
+      - 'docs/rmdc26/SOURCE_INTEGRITY.md'
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/fit_rmdc26_1s1l_baseline_v022.py'
+      - 'scripts/select_rmdc26_stage2_canary_v010.py'
+      - 'tests/test_rmdc26_1s1l_baseline_v022.py'
+      - 'tests/test_select_rmdc26_stage2_canary_v010.py'
+      - 'requirements-rmdc26.txt'
+      - '.github/workflows/rmdc26-stage1-fixtures.yml'
+      - 'docs/rmdc26/SOURCE_INTEGRITY.md'
+
+permissions:
+  contents: read
+
+jobs:
+  fixture-rmdc26:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-rmdc26.txt
+
+      - name: Install RMDC26 public test dependencies
+        run: python -m pip install -r requirements-rmdc26.txt
+
+      - name: Compile public RMDC26 scripts
+        run: |
+          python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
+          python -m py_compile scripts/select_rmdc26_stage2_canary_v010.py
+
+      - name: Lock public Stage 1 source bytes
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          path = Path('scripts/fit_rmdc26_1s1l_baseline_v022.py')
+          actual = hashlib.sha256(path.read_bytes()).hexdigest()
+          expected = '917566cbd60acc366bcc082892a167651d5ce9a6b4b3e2685978a28d273665f6'
+          print('PUBLIC_STAGE1_SHA256=', actual)
+          if actual != expected:
+              raise SystemExit('Public Stage 1 source hash drifted from attested bytes')
+          print('PUBLIC_STAGE1_SOURCE_LOCK=PASS')
+          PY
+
+      - name: Run Stage 1 fixture regression test
+        env:
+          PYTHONPATH: scripts
+        run: python tests/test_rmdc26_1s1l_baseline_v022.py
+
+      - name: Run Stage 2 fixture regression test
+        env:
+          PYTHONPATH: scripts
+        run: python tests/test_select_rmdc26_stage2_canary_v010.py
