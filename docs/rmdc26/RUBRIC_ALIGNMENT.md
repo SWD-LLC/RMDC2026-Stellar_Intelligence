@@ -44,7 +44,7 @@ The Stage 1 fitter:
 - records parameter-boundary convergence as quality metadata;
 - does not silently drop the one event with no valid unsaturated photometry.
 
-Code-generated regression fixtures exercise clean PSPL recovery, anomaly-routing logic, and the data-quality route. They are software tests, not scientific simulations.
+Code-generated regression fixtures exercise clean PSPL recovery, anomaly-routing logic, and the data-quality route. They are software tests only.
 
 ### Time-coordinate control
 
