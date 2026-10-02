@@ -5,4 +5,4 @@ Thank you for your interest in the Stellar Intelligence platform. To ensure scie
 - **Versioning**: We follow Semantic Versioning (SemVer).
 - **Documentation**: New modules must update the ASTRID State Machine documentation in the README.
 - **Reporting**: Report issues via GitHub Issues, referencing the specific ASTRID module impacted.
-- **Ethics**: AI-assisted code generation must be disclosed in the pull request description.
+- **Traceability**: material code changes should describe their purpose, validation, and provenance in the pull request description.
