@@ -71,4 +71,4 @@ The Stage 1 pipeline records `t0_time_system=input_bjd`. A separate read-only au
 
 ## Reproducibility note
 
-The public code and code-generated regression fixtures are designed to make fitting and routing behavior inspectable without republishing protected challenge data. These fixtures are software checks, not scientific simulations. Reproducing the exact competition results requires authorized access to the RMDC26 Experienced dataset on the Roman Research Nexus or an equivalent organizer-provided data source.
+The public code and code-generated regression fixtures are designed to make fitting and routing behavior inspectable without republishing protected challenge data. These fixtures are software checks only. Reproducing the exact competition results requires authorized access to the RMDC26 Experienced dataset on the Roman Research Nexus or an equivalent organizer-provided data source.
