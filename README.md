@@ -4,10 +4,10 @@ This repository contains the public, reproducible technical record for the Stell
 
 ## RMDC26 status
 
-The final October 2, 2026 RMDC26 Experienced-tier artifact has been validated, exported, independently ZIP-checked, and cryptographically frozen.
+The October 2, 2026 Stellar Intelligence RMDC26 Experienced-tier artifact has been validated, exported, archive-audited, cryptographically identified, and submitted through the organizer-provided alternative Box path.
 
+- Project: **Stellar Intelligence**
 - Challenge tier: **Experienced**
-- Team name: **Sierra Warren RMDC26**
 - Historical Stage 1 targets processed: **2,079**
 - Historical Stage 1 model-bearing solutions: **2,078**
 - Historical data-quality-only event: `RMDC26_001563`
@@ -15,26 +15,27 @@ The final October 2, 2026 RMDC26 Experienced-tier artifact has been validated, e
 - Final exported solution records: **2,078**
 - Final active solutions: **2,078**
 - Final inactive solutions: **0**
-- Final solution notes: **2,078 / 2,078 non-empty**
-- Submission validation issues: **0**
-- Official `validate-submission`: **All validations passed**
+- Final model mix: **2,076 × 1S1L, 1 × 1S3L, 1 × 2S1L**
+- Final archive audit: **PASS**
 - Final export status: **PASS**
-- External challenge upload: **not yet recorded in this repository**
+- External challenge upload: **submitted through the alternative Box file request**
 
-Final frozen archive:
+Final submitted archive:
 
 ```text
-RMDC26_Sierra_Warren_Experienced_20261002.zip
-size_bytes: 2600175
-members: 6235
-sha256: 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
+Stellar_Intelligence_RMDC26_Experienced_20261002_FINAL.zip
+sha256: f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
 ```
 
 The challenge ZIP itself is intentionally not committed here. See `docs/rmdc26/FINAL_SUBMISSION_2026-10-02.md` for the final artifact record and `docs/rmdc26/SUBMISSION_RECORD.md` for the preserved submission history.
 
 ### Scientific-scope warning
 
-The verified ZIP is a **Stage 1 baseline package**, not a claim that every Experienced-tier event has received its final higher-order physical classification. Of the 2,078 model-bearing Stage 1 events, 930 were explicitly routed as anomalous and therefore warrant more expressive modeling or review. See `docs/rmdc26/SCIENTIFIC_SCOPE.md` and `docs/rmdc26/MODELING_ROADMAP.md` before interpreting technical package validity as scientific completeness.
+The final archive is not a claim that every Experienced-tier event has received an exhaustive higher-order physical classification. Most exported solutions remain Stage 1 `1S1L` baselines. Two events contain recovered higher-complexity solutions in the submitted archive: `RMDC26_002050` as `1S3L` and `RMDC26_000249` as `2S1L`.
+
+The current submission toolkit emits six schema warnings for the fit-native 1S3L geometry field names retained for `RMDC26_002050`. Those names were not remapped without proof of semantic equivalence. The corresponding submission note records this boundary.
+
+Organizer guidance also establishes that evaluator-facing written notes are loaded from the Markdown note hooks referenced by the submission object. Repository notebooks and broader technical documents are supporting provenance, not substitutes for those submission notes.
 
 ## Official challenge source of truth
 
@@ -127,17 +128,18 @@ Those values are historical execution facts and are not retroactively changed.
 
 The final submission package was validated and exported on Roman Research Nexus using `microlens-submit==0.17.9` in `RomanNexus-2026.2`.
 
-The frozen ZIP embeds:
+The final submitted artifact embeds:
 
 ```text
+cpu: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
 cpu_details: 2 online CPUs: 0,1
-memory_gb: 15.0
+memory_gb: 15
 platform: Roman Nexus
 nexus_image: RomanNexus-2026.2
 repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
 ```
 
-The frozen archive does **not** contain a separate `cpu` model field. The CPU model observed during Nexus environment inspection is therefore not represented here as embedded submission metadata. The final packaging environment and the historical Stage 1 execution environment are intentionally documented separately.
+The final packaging environment and the historical Stage 1 execution environment are intentionally documented separately.
 
 ## Time-coordinate policy
 
