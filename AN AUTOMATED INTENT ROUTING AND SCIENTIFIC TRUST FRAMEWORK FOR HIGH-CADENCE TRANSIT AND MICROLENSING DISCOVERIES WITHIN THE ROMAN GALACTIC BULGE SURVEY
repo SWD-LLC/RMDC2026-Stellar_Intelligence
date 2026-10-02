@@ -12,7 +12,7 @@ The Nancy Grace Roman Space Telescope's Galactic Bulge Time-Domain Survey (GBTDS
 
 This work presents ASTRID (Automated Scientific Trust and Intent Routing Intelligence Director), a provenance-centered architectural framework developed within the Stellar Intelligence platform. Rather than treating classification as a single opaque prediction task, ASTRID organizes scientific reasoning through a structured four-stage validation pipeline: Observation, Evidence, Interpretation, and Uncertainty.
 
-The framework introduces intent-based routing, auditable evidence chains, and immutable research journaling to ensure that each scientific conclusion remains traceable to its originating observations and supporting datasets. Simulated Roman-style transit and microlensing workflows demonstrate how the architecture can preserve transparency during high-throughput event analysis while reducing risks associated with metadata loss and non-explainable decision pathways.
+The framework introduces intent-based routing, auditable evidence chains, and immutable research journaling to ensure that each scientific conclusion remains traceable to its originating observations and supporting datasets. Illustrative Roman-style transit and microlensing workflow scenarios show how the architecture is intended to preserve transparency during high-throughput event analysis while reducing risks associated with metadata loss and non-explainable decision pathways.
 
 This work proposes a reproducible foundation for future astronomical discovery systems where scientific trust, provenance, and interpretability are treated as first-class design requirements.
 
@@ -140,7 +140,7 @@ This approach transforms scientific processing into a traceable state machine ra
 
 ---
 
-## SIMULATED ROMAN USE CASES
+## ILLUSTRATIVE ROMAN USE CASES
 
 ### Transit Detection Scenario
 
@@ -222,9 +222,7 @@ To be assigned upon publication.
 
 ## DISCLOSURES
 
-This work presents a proposed architectural framework and simulated operational workflows. No proprietary Roman mission data were used.
-
-AI-assisted tools, including large language models (LLMs), were used during architectural design, drafting, editing, and documentation. All scientific interpretations and final research content were reviewed and validated by the author.
+This work presents a proposed architectural framework and conceptual operational scenarios. No proprietary Roman mission data were used.
 
 ---
 
