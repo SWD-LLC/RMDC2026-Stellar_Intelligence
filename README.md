@@ -179,7 +179,7 @@ Additional control/evidence files will be added from the Roman Nexus working tre
 
 ## Public fixture-based verification
 
-The repository includes lightweight code-generated regression fixtures that do **not** use or reproduce the challenge dataset. They exercise clean PSPL recovery, injected-anomaly routing logic, and data-quality coverage handling. These are software test fixtures, not scientific simulations or RMDC26 event products.
+The repository includes lightweight code-generated regression fixtures that do **not** use or reproduce the challenge dataset. They exercise clean PSPL recovery, injected-anomaly routing logic, and data-quality coverage handling. They are software test fixtures only and are not RMDC26 event products.
 
 ```bash
 python -m pip install -r requirements-rmdc26.txt
