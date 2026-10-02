@@ -9,21 +9,24 @@ This file records the final audited artifact prepared and submitted through the 
 
 ## Final submitted package identity
 
-Submission-facing filename:
+The corrected submission-facing artifact supersedes the earlier October 2 package:
+
+```text
+Stellar_Intelligence_RMDC26_Experienced_20261002_CORRECTED_1S3L.zip
+SHA256 8e0568f457635bbdcdf304f46535bff5002540b85feda5bdf2c2763b2db18e04
+SIZE   16537040 bytes
+```
+
+The earlier artifact is retained as historical provenance:
 
 ```text
 Stellar_Intelligence_RMDC26_Experienced_20261002_FINAL.zip
+SHA256 f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
 ```
 
-Audited final artifact SHA-256:
+The challenge ZIP itself is intentionally not committed to this public repository.
 
-```text
-f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
-```
-
-The final ZIP is intentionally not committed to this public repository.
-
-The project owner reported successful upload through the RMDC26 alternative Box file request on October 2, 2026. Organizer notification is handled separately through the requested Slack/email channel.
+The corrected artifact was prepared for submission through the RMDC26 alternative Box file request on October 2, 2026. See `1S3L_CORRECTION_2026-10-02.md` for the exact correction record.
 
 ## Final exported state
 
@@ -55,20 +58,23 @@ The repository may contain broader engineering and provenance documentation, but
 
 ## Validation and schema boundary
 
-The full submission validation and export completed successfully with `microlens-submit==0.17.9`, and the final ZIP passed its archive audit.
+The original October 2 package completed the recorded submission validation/export workflow with `microlens-submit==0.17.9` and passed its archive audit.
 
-The `1S3L` solution for `RMDC26_002050` retains fit-native geometry field names:
+Before the final corrected submission, the `RMDC26_002050` `1S3L` geometry was remapped from the fit-native fields `s_21/q_21/s_31/q_31/alpha/psi` into the pairwise fields defined by `microlens-submit/spec/parameter_spec.yaml`:
 
 ```text
-s_21
-q_21
-s_31
-q_31
-alpha
-psi
+s01/q01/alpha01
+s02/q02/alpha02
+s12/q12/alpha12
 ```
 
-The current toolkit's 1S3L parameter specification lists canonical geometry names differently and emits six warnings for these native fields. The mapping was not guessed or rewritten because semantic equivalence, particularly for the angular parameters, was not independently established. This limitation is documented in the corresponding submission note.
+The fitted `t0`, `u0`, and `tE` values were preserved unchanged. Direct checking against the canonical YAML specification returned no missing required fields and no unknown `1S3L` fields:
+
+```text
+SPEC_CONFORMANT = True
+```
+
+The local generated validator was stale relative to the same checkout's canonical specification and did not include `1S3L` in its active `MODEL_DEFINITIONS`. The scientific parameters were therefore not altered to satisfy the stale generated validator. See `1S3L_CORRECTION_2026-10-02.md` for the full correction record.
 
 Exporter warnings that set equal `relative_probability` values when likelihood information is absent are retained as toolkit warnings rather than represented as validation failures. Each event in the final export has one active solution.
 
@@ -107,3 +113,9 @@ The final archive is not presented as an exhaustive higher-order solution of all
 ## Submission destination
 
 The alternative RMDC26 submission was made through the organizer-provided Box file request. The submission-facing artifact is the Stellar Intelligence-named ZIP identified above.
+
+
+## Authorship
+
+**Author and project owner:** Sierra Warren  
+**Organization:** Sierra Warren Developments, LLC
