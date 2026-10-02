@@ -29,22 +29,23 @@ The manual strongly recommends using the official tool instead of hand-building 
 
 ## Project metadata
 
-The official tutorial expects repository and hardware information to be recorded before final validation/export.
-
-Recorded final project metadata included:
+The final October 2 challenge artifact embeds:
 
 ```text
+Team name: Sierra Warren RMDC26
 Tier: experienced
-Repository: this public project repository
-CPU: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
-Memory: 15.34 GB
-OS: Linux
-Nexus image: 378083651696.dkr.ecr.us-east-1.amazonaws.com/roman:RomanNexus-2026.1
-Python: 3.12.13
+Repository: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+git_dir: null
 microlens-submit: 0.17.9
 ```
 
-The exact repository URL stored in the historical project should be checked before any future export if the GitHub repository has since been renamed.
+The Stage 1 production run remains historically documented under `RomanNexus-2026.1` / Python 3.12.13. That historical compute provenance is separate from the final October 2 packaging and validation environment and is not rewritten.
+
+The exact repository URL stored in the final artifact is the public repository above.
 
 ## CSV import contract
 
@@ -176,29 +177,32 @@ Organizer-provided notebooks in the Nexus reference directory are read-only and 
 
 ## Final export record
 
-The locally exported ZIP was audited after export:
+The October 2 final archive was independently audited after export:
 
 ```text
-STATUS: PASS_EXPORTED_ARCHIVE_VERIFIED
-EXPORT_RETURN_CODE: 0
-EXPORTED_SOLUTION_JSONS: 2078
-EXPORTED_UNIQUE_SOLUTION_IDS: 2078
-EXPORTED_IDS_MATCH_LIVE: True
-EXPORTED_HARDWARE_PRESENT: True
+ARCHIVE: RMDC26_Sierra_Warren_Experienced_20261002.zip
+SIZE_BYTES: 2600175
+ZIP_MEMBERS: 6235
+EVENT_JSONS: 2078
+SOLUTION_JSONS: 2078
+SOLUTION_NOTES: 2078
+ACTIVE_SOLUTIONS: 2078
+INACTIVE_SOLUTIONS: 0
+HARDWARE_METADATA_PRESENT: True
+SUBMISSION_VALIDATION_ISSUES: 0
+OFFICIAL_VALIDATE_SUBMISSION: ALL VALIDATIONS PASSED
 ZIP_CRC_CLEAN: True
-ZIP_PATHS_SAFE: True
-LIVE_PROJECT_UNCHANGED: True
-STAGE1_UNCHANGED: True
-ACTIVE_LOCK_UNCHANGED: True
 ```
 
 Archive SHA-256:
 
 ```text
-0bb982805fe62eded6d43dd99252c02e853733356c49a8637573a7b577740597
+6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
 ```
 
-No external upload is claimed by this record.
+The prior August 9 archive and its hash remain preserved in `SUBMISSION_RECORD.md` and `EVIDENCE_INDEX.md` as historical evidence. They are not the October 2 final challenge artifact.
+
+No external upload is claimed by this record until a challenge-upload confirmation is preserved.
 
 ## Future-export gate
 

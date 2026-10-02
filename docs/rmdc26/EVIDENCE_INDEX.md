@@ -2,6 +2,31 @@
 
 This index maps the public repository record to the locked Nexus evidence chain. Raw challenge data, generated staging trees, and the final submission ZIP are intentionally not committed here.
 
+## Final October 2 submission artifact
+
+```text
+archive: RMDC26_Sierra_Warren_Experienced_20261002.zip
+sha256: 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
+size_bytes: 2600175
+zip_members: 6235
+events: 2078
+solution_jsons: 2078
+solution_notes: 2078
+active_solutions: 2078
+inactive_solutions: 0
+submission_validation_issues: 0
+official_validate_submission: ALL VALIDATIONS PASSED
+zip_integrity: PASS
+team_name: Sierra Warren RMDC26
+tier: experienced
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+memory_gb: 15.0
+cpu_details: 2 online CPUs: 0,1
+```
+
+The earlier controlled export below is retained as historical provenance and should not be mistaken for the October 2 artifact.
+
 ## Stage 1 production
 
 | Evidence | Status / anchor |
@@ -156,7 +181,7 @@ submission validation messages: 0
 submission validation exception: None
 ```
 
-## Controlled export
+## Historical controlled export (August 9, 2026)
 
 Verified local submission ZIP:
 

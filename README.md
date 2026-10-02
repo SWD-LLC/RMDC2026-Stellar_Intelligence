@@ -4,26 +4,33 @@ This repository contains the public, reproducible technical record for the Stell
 
 ## RMDC26 status
 
-The current RMDC26 pipeline reached a verified local export state on Roman Research Nexus.
+The final October 2, 2026 RMDC26 Experienced-tier artifact has been validated, exported, independently ZIP-checked, and cryptographically frozen.
 
 - Challenge tier: **Experienced**
-- Source dataset: `/data/data-challenge/rges/RMDC26_Experienced_Data.parquet`
-- Stage 1 pipeline: `scripts/fit_rmdc26_1s1l_baseline_v022.py`
-- Stage 1 version: `0.2.2`
-- Events processed: **2,079**
-- Model-bearing solutions: **2,078**
-- Data-quality-only event: `RMDC26_001563`
-- Stage 1 failures: **0**
-- Submission solutions validated: **2,078 / 2,078**
-- Active solutions at export: **2,078**
-- Local export status: `PASS_EXPORTED_ARCHIVE_VERIFIED`
-- External upload/submission: **not performed as of the recorded export transaction**
+- Team name: **Sierra Warren RMDC26**
+- Historical Stage 1 targets processed: **2,079**
+- Historical Stage 1 model-bearing solutions: **2,078**
+- Historical data-quality-only event: `RMDC26_001563`
+- Final exported event records: **2,078**
+- Final exported solution records: **2,078**
+- Final active solutions: **2,078**
+- Final inactive solutions: **0**
+- Final solution notes: **2,078 / 2,078 non-empty**
+- Submission validation issues: **0**
+- Official `validate-submission`: **All validations passed**
+- Final export status: **PASS**
+- External challenge upload: **not yet recorded in this repository**
 
-The exported submission archive itself is not committed here. Its verified SHA-256 is:
+Final frozen archive:
 
 ```text
-0bb982805fe62eded6d43dd99252c02e853733356c49a8637573a7b577740597
+RMDC26_Sierra_Warren_Experienced_20261002.zip
+size_bytes: 2600175
+members: 6235
+sha256: 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
 ```
+
+The challenge ZIP itself is intentionally not committed here. See `docs/rmdc26/FINAL_SUBMISSION_2026-10-02.md` for the final artifact record and `docs/rmdc26/SUBMISSION_RECORD.md` for the preserved submission history.
 
 ### Scientific-scope warning
 
@@ -100,7 +107,9 @@ The Nexus preloaded reference directory is also treated as external reference co
 
 ## Compute record
 
-The completed full Stage 1 run used:
+### Historical Stage 1 production run
+
+The completed Stage 1 production run remains recorded exactly as executed:
 
 - Roman Nexus environment: `RomanNexus-2026.1`
 - Python: `3.12.13`
@@ -112,12 +121,23 @@ The completed full Stage 1 run used:
 - Stage 1 total measured CPU: `5,879.733 s` (`1.633259 CPU-h`)
 - reported CPU utilization: `99.31%`
 
-Submission hardware metadata recorded in the final staging project:
+Those values are historical execution facts and are not retroactively changed.
 
-- CPU: `Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz`
-- memory: `15.34 GB`
-- OS: Linux
-- Nexus image: `378083651696.dkr.ecr.us-east-1.amazonaws.com/roman:RomanNexus-2026.1`
+### Final October 2 packaging and validation environment
+
+The final submission package was validated and exported on Roman Research Nexus using `microlens-submit==0.17.9` in `RomanNexus-2026.2`.
+
+The frozen ZIP embeds:
+
+```text
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
+```
+
+The final packaging environment and the historical Stage 1 execution environment are intentionally documented separately.
 
 ## Time-coordinate policy
 
@@ -142,6 +162,7 @@ docs/rmdc26/
   OFFICIAL_CHALLENGE_RESOURCES.md
   SUBMISSION_SPEC_ALIGNMENT.md
   SUBMISSION_RECORD.md
+  FINAL_SUBMISSION_2026-10-02.md
   SCIENTIFIC_SCOPE.md
   MODELING_ROADMAP.md
   RUBRIC_ALIGNMENT.md

@@ -2,7 +2,26 @@
 
 This page separates **exactly recorded runtime facts** from the organizer-maintained challenge environment. They are related, but they are not interchangeable.
 
-## Exact recorded production environment
+## Final October 2 packaging and validation environment
+
+The final challenge artifact was validated and exported on Roman Research Nexus using `microlens-submit==0.17.9` in `RomanNexus-2026.2`.
+
+The frozen final ZIP embeds the following submission metadata:
+
+```text
+team_name: Sierra Warren RMDC26
+tier: experienced
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
+git_dir: null
+```
+
+This final packaging environment is distinct from the Stage 1 production environment below. The historical Stage 1 runtime is preserved exactly rather than rewritten.
+
+## Historical Stage 1 production environment
 
 ```text
 Execution platform: Roman Research Nexus
@@ -14,7 +33,7 @@ microlens-submit module location: /home/swa417/.local/lib/python3.12/site-packag
 working CLI invocation: python -m microlens_submit.cli
 ```
 
-Final submission hardware metadata:
+Historical August staging hardware metadata:
 
 ```text
 platform: Linux-6.12.94-123.190.amzn2023.x86_64-x86_64-with-glibc2.39

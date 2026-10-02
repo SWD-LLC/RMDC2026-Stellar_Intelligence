@@ -1,6 +1,52 @@
 # RMDC26 Experienced — Submission Record
 
-This document is the evaluator-facing provenance summary for the Stellar Intelligence RMDC26 Experienced-tier submission workflow.
+This document preserves the submission history for the Stellar Intelligence RMDC26 Experienced-tier workflow. The October 2, 2026 artifact below is the final frozen package prepared for challenge upload; older export records are retained as historical provenance.
+
+## October 2, 2026 final challenge artifact
+
+```text
+TEAM_NAME: Sierra Warren RMDC26
+TIER: experienced
+EVENTS: 2078
+ACTIVE_SOLUTIONS: 2078
+INACTIVE_SOLUTIONS: 0
+NONEMPTY_NOTES: 2078
+SUBMISSION_VALIDATION_ISSUES: 0
+OFFICIAL_VALIDATE_SUBMISSION: ALL VALIDATIONS PASSED
+ZIP_INTEGRITY: PASS
+```
+
+Final artifact:
+
+```text
+RMDC26_Sierra_Warren_Experienced_20261002.zip
+SIZE_BYTES 2600175
+MEMBERS 6235
+SHA256 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
+```
+
+Final embedded submission metadata:
+
+```text
+team_name: Sierra Warren RMDC26
+tier: experienced
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
+repo_url: https://github.com/SWD-LLC/RMDC2026-Stellar_Intelligence.git
+git_dir: null
+```
+
+A comprehensive dossier was generated successfully before export. The final ZIP contains 2,078 event JSON records, 2,078 active solution JSON records, and 2,078 Markdown solution notes.
+
+The final challenge ZIP is intentionally not stored in this repository. External challenge upload is not claimed until an upload confirmation is preserved.
+
+See `FINAL_SUBMISSION_2026-10-02.md` for the compact final artifact record.
+
+## Historical August 9 local export state
+
+The following record is retained because it documents an earlier controlled export and its integrity chain. It is not the October 2 final challenge artifact.
 
 ## Final local submission state
 

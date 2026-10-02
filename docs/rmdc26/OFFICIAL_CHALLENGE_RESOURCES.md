@@ -36,6 +36,14 @@ The challenge documentation explicitly states that strict adherence to the submi
 
 ## Submission guides
 
+### Submission box
+
+The RMDC26 Slack `Helpful Links` resource identifies the challenge submission destination as:
+
+https://lsu.app.box.com/f/9c12c0e9d1c74bbc82f89bf9ebdf9f17
+
+### Submission-tool documentation
+
 - CLI tutorial: https://microlens-submit.readthedocs.io/en/latest/cli_tutorial.html
 - Python API: https://microlens-submit.readthedocs.io/en/latest/api.html
 - Usage examples: https://microlens-submit.readthedocs.io/en/latest/usage_examples.html

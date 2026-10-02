@@ -55,13 +55,20 @@ total measured CPU: 5879.733 s = 1.633259 CPU-h
 reported CPU utilization: 99.31%
 ```
 
-Final submission hardware metadata:
+Historical Stage 1/staging environment metadata:
 
 ```text
-CPU: Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz
-memory: 15.34 GB
-OS: Linux
-Nexus image: 378083651696.dkr.ecr.us-east-1.amazonaws.com/roman:RomanNexus-2026.1
+RomanNexus-2026.1
+Python 3.12.13
+```
+
+Final October 2 packaging metadata embedded in the frozen archive:
+
+```text
+cpu_details: 2 online CPUs: 0,1
+memory_gb: 15.0
+platform: Roman Nexus
+nexus_image: RomanNexus-2026.2
 ```
 
 The Stage 1 design intentionally limits expensive nonlinear optimization by preserving high-information epochs and filling the remaining fit subset deterministically.
@@ -101,28 +108,30 @@ submission validation exception: None
 
 ## Verified export
 
-The locked local submission artifact is not committed to GitHub.
+The final October 2 submission artifact is not committed to GitHub.
 
 ```text
-archive SHA-256:
-0bb982805fe62eded6d43dd99252c02e853733356c49a8637573a7b577740597
-
-export report SHA-256:
-259e6d374c409f10734ac9d9aeec5783251110926ff00d5cd799e85d62e61248
+archive: RMDC26_Sierra_Warren_Experienced_20261002.zip
+size_bytes: 2600175
+members: 6235
+sha256: 6f509d13444cc723622db27e04ce729da7f63dfe4d1c2bee33ae2e940427140e
 ```
 
-Archive verification established:
+Final archive verification established:
 
-- 2078 event JSON records;
-- 2078 solution JSON records;
-- 2078 unique solution IDs;
-- exported IDs exactly matched the live validated project;
-- all exported solutions active;
-- hardware metadata present;
-- ZIP CRC clean;
-- zero unsafe archive paths;
-- live project unchanged by export;
-- Stage 1 artifacts unchanged by export.
+- 2,078 event JSON records;
+- 2,078 solution JSON records;
+- 2,078 Markdown solution notes;
+- 2,078 unique active solutions;
+- 0 inactive solutions;
+- embedded hardware metadata present;
+- ZIP integrity clean;
+- official `microlens-submit validate-submission` passed;
+- submission validation issues: 0.
+
+Final packaging and validation were performed in `RomanNexus-2026.2` with `microlens-submit==0.17.9`.
+
+The earlier August export hashes remain preserved in `SUBMISSION_RECORD.md` and `EVIDENCE_INDEX.md` as historical provenance; they are not the October 2 final artifact.
 
 ## Time-coordinate provenance
 
