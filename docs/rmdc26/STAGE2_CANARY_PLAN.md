@@ -127,7 +127,7 @@ Do not proceed to bulk Stage 2 if any of the following occurs:
 - selected canary IDs are not unique;
 - a selected row is not `anomalous_route` + `fit_success`;
 - model-family parameter mapping is not compliant with the current challenge submission specification;
-- higher-order code cannot reproduce synthetic/known-case tests;
+- higher-order code cannot reproduce deterministic fixture/known-case tests;
 - runtime or memory behavior is uncontrolled;
 - fit failures are being silently discarded;
 - model escalation is based only on Stage 1 route labels without fit evidence.
