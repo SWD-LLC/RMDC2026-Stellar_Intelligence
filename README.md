@@ -20,20 +20,20 @@ The October 2, 2026 Stellar Intelligence RMDC26 Experienced-tier artifact has be
 - Final export status: **PASS**
 - External challenge upload: **submitted through the alternative Box file request**
 
-Final submitted archive:
+Final corrected submitted archive:
 
 ```text
-Stellar_Intelligence_RMDC26_Experienced_20261002_FINAL.zip
-sha256: f9fdb62dbf9a75f7bd2a5f68e17a25c27f9d990a606c47c2d42a30e2388d41dd
+Stellar_Intelligence_RMDC26_Experienced_20261002_CORRECTED_1S3L.zip
+sha256: 8e0568f457635bbdcdf304f46535bff5002540b85feda5bdf2c2763b2db18e04
 ```
 
-The challenge ZIP itself is intentionally not committed here. See `docs/rmdc26/FINAL_SUBMISSION_2026-10-02.md` for the final artifact record and `docs/rmdc26/SUBMISSION_RECORD.md` for the preserved submission history.
+This corrected artifact supersedes the earlier October 2 package while preserving the earlier package as provenance. The challenge ZIP itself is intentionally not committed here. See `docs/rmdc26/FINAL_SUBMISSION_2026-10-02.md`, `docs/rmdc26/1S3L_CORRECTION_2026-10-02.md`, and `docs/rmdc26/SUBMISSION_RECORD.md` for the artifact and submission history.
 
 ### Scientific-scope warning
 
 The final archive is not a claim that every Experienced-tier event has received an exhaustive higher-order physical classification. Most exported solutions remain Stage 1 `1S1L` baselines. Two events contain recovered higher-complexity solutions in the submitted archive: `RMDC26_002050` as `1S3L` and `RMDC26_000249` as `2S1L`.
 
-The current submission toolkit emits six schema warnings for the fit-native 1S3L geometry field names retained for `RMDC26_002050`. Those names were not remapped without proof of semantic equivalence. The corresponding submission note records this boundary.
+The active `RMDC26_002050` `1S3L` geometry was remapped before the corrected submission into the canonical pairwise fields `s01/q01/alpha01`, `s02/q02/alpha02`, and `s12/q12/alpha12`. The fitted `t0`, `u0`, and `tE` values were preserved unchanged. Direct checking against `parameter_spec.yaml` returned `SPEC_CONFORMANT = True`. The local generated validator was stale relative to that specification and did not include `1S3L` in its active model definitions.
 
 Organizer guidance also establishes that evaluator-facing written notes are loaded from the Markdown note hooks referenced by the submission object. Repository notebooks and broader technical documents are supporting provenance, not substitutes for those submission notes.
 
@@ -165,6 +165,7 @@ docs/rmdc26/
   SUBMISSION_SPEC_ALIGNMENT.md
   SUBMISSION_RECORD.md
   FINAL_SUBMISSION_2026-10-02.md
+  1S3L_CORRECTION_2026-10-02.md
   SCIENTIFIC_SCOPE.md
   MODELING_ROADMAP.md
   RUBRIC_ALIGNMENT.md
