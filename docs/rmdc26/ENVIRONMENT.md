@@ -136,7 +136,7 @@ Use the distinction this way:
 
 - **recorded production environment** = what actually executed the locked Stage 1 and submission transaction;
 - **official organizer environment** = compatibility/reference environment for reproducing workshop notebooks and designing future challenge work;
-- **public CI environment** = lightweight synthetic verification environment defined by `requirements-rmdc26.txt` and GitHub Actions.
+- **public CI environment** = lightweight fixture-based software verification environment defined by `requirements-rmdc26.txt` and GitHub Actions.
 
 ## Higher-order modeling dependency policy
 
