@@ -55,7 +55,7 @@ See `docs/rmdc26/OFFICIAL_CHALLENGE_RESOURCES.md` for exact notebook links, subm
 The RMDC26 portion of this repository is being organized so evaluators and researchers can inspect:
 
 - the production Stage 1 fitting code;
-- synthetic regression tests;
+- deterministic code-generated regression fixtures;
 - the Stage 1 runbook;
 - compute and hardware documentation;
 - time-coordinate provenance and the challenge-specific `t0` decision;
@@ -172,14 +172,14 @@ docs/rmdc26/
   ENGINEERING_JOURNAL_2026-08-05.md
 
 requirements-rmdc26.txt
-.github/workflows/rmdc26-stage1-synthetic.yml
+.github/workflows/rmdc26-stage1-fixtures.yml
 ```
 
 Additional control/evidence files will be added from the Roman Nexus working tree without rewriting the already-validated scientific outputs.
 
-## Public synthetic verification
+## Public fixture-based verification
 
-The repository includes a lightweight test that does **not** require the challenge dataset. It checks clean PSPL recovery, injected-anomaly routing, and data-quality coverage behavior.
+The repository includes lightweight code-generated regression fixtures that do **not** use or reproduce the challenge dataset. They exercise clean PSPL recovery, injected-anomaly routing logic, and data-quality coverage handling. These are software test fixtures, not scientific simulations or RMDC26 event products.
 
 ```bash
 python -m pip install -r requirements-rmdc26.txt
@@ -187,7 +187,7 @@ python -m py_compile scripts/fit_rmdc26_1s1l_baseline_v022.py
 PYTHONPATH=scripts python tests/test_rmdc26_1s1l_baseline_v022.py
 ```
 
-A GitHub Actions workflow runs the same synthetic verification for relevant pull requests and changes to `main`.
+A GitHub Actions workflow runs the same fixture-based verification for relevant pull requests and changes to `main`.
 
 ## Official challenge tooling
 
