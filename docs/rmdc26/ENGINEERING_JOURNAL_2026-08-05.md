@@ -59,7 +59,7 @@ Stage 1 evidence archive SHA-256:
 | 02 | environment | inspected Python/package environment | Python `3.12.13`; `microlens-submit==0.17.9` |
 | 03 | CLI | investigated missing direct executable | console script existed under user base; module invocation used without PATH mutation |
 | 04 | CLI contract | inspected supported commands/help | specific init/import/activate/deactivate/validation commands confirmed |
-| 05 | synthetic dry run | ran contract probe | invocation and parsing behavior passed without persistent RMDC26 import |
+| 05 | isolated fixture dry run | ran contract probe | invocation and parsing behavior passed without persistent RMDC26 import |
 | 06 | persistence | ran isolated persistent import probe | imported solution persisted and defaulted to active |
 | 07 | source inspection | inspected installed importer | CSV import path did not expose a reliable inactive-state mapping |
 | 08 | lifecycle | tested import -> deactivate -> reload | supported deactivation persisted inactive state |
@@ -150,12 +150,12 @@ The challenge data were treated as read-only inputs.
 | Stage 1 CSV | protected derived baseline | unchanged |
 | Stage 1 manifest | protected run metadata | unchanged |
 | BJD-to-HJD conversion | not performed | organizer-approved BJD policy |
-| synthetic probe rows | isolated tooling probes | not RMDC26 event data |
+| generated probe rows | isolated tooling probes | not RMDC26 event data |
 
 ## Tests and validation in this window
 
 ```text
-Stage 1 synthetic clean PSPL recovery: PASS
+Stage 1 fixture-based clean PSPL recovery: PASS
 Stage 1 injected anomaly routing: PASS
 Stage 1 no-valid-photometry coverage row: PASS
 Stage 1 full production run: PASS
@@ -163,7 +163,7 @@ Stage 1 accounting: PASS
 microlens-submit contract probe: PASS
 persistence probe: PASS
 default active-state observation: True
-synthetic supported deactivation: PASS
+fixture-based supported deactivation: PASS
 time-standard audit: PASS
 organizer resolution: use BJD
 corrected canary package identifier scan: PASS
