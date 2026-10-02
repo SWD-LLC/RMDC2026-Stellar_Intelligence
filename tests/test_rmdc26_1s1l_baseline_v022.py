@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic validation for ASTRID RMDC26 Stage 1 fitter v0.2.2."""
+"""Deterministic fixture validation for RMDC26 Stage 1 fitter v0.2.2."""
 from __future__ import annotations
 
 import numpy as np
@@ -8,7 +8,7 @@ import pandas as pd
 import fit_rmdc26_1s1l_baseline_v022 as module
 
 
-def synthetic_event(*, anomaly: bool, seed: int) -> pd.DataFrame:
+def fixture_event(*, anomaly: bool, seed: int) -> pd.DataFrame:
     rng = np.random.default_rng(seed)
     t0, u0, t_e = 2_460_500.0, 0.18, 24.0
     rows: list[tuple[float, str, float, float, bool]] = []
@@ -51,7 +51,7 @@ def main() -> None:
         maxiter=120,
     )
 
-    clean = module.fit_event("SYNTHETIC_CLEAN", synthetic_event(anomaly=False, seed=42), config)
+    clean = module.fit_event("FIXTURE_CLEAN", fixture_event(anomaly=False, seed=42), config)
     assert clean["route"] == "1S1L_candidate", clean["route_reason"]
     assert clean["fit_status"] == "fit_success"
     assert abs(clean["t0"] - 2_460_500.0) < 0.5, clean["t0"]
@@ -60,14 +60,14 @@ def main() -> None:
     assert not clean["optimizer_seed_stuck"]
 
     anomalous = module.fit_event(
-        "SYNTHETIC_ANOMALOUS",
-        synthetic_event(anomaly=True, seed=7),
+        "FIXTURE_ANOMALOUS",
+        fixture_event(anomaly=True, seed=7),
         config,
     )
     assert anomalous["route"] == "anomalous_route", anomalous["route_reason"]
 
     quality = module.build_data_quality_row(
-        "SYNTHETIC_SATURATED",
+        "FIXTURE_SATURATED",
         saturated_event(),
         "no_valid_unsaturated_photometry",
     )
